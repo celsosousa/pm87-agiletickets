@@ -3,13 +3,20 @@ package br.com.caelum.agiletickets.models;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class EspetaculoTest {
 
+	private Espetaculo ivete;
+	
+	@Before
+	public void setUp(){
+		this.ivete = new Espetaculo();
+	}
+	
 	@Test
 	public void deveInformarSeEhPossivelReservarAQuantidadeDeIngressosDentroDeQualquerDasSessoes() {
-		Espetaculo ivete = new Espetaculo();
 
 		ivete.getSessoes().add(sessaoComIngressosSobrando(1));
 		ivete.getSessoes().add(sessaoComIngressosSobrando(3));
@@ -20,7 +27,6 @@ public class EspetaculoTest {
 
 	@Test
 	public void deveInformarSeEhPossivelReservarAQuantidadeExataDeIngressosDentroDeQualquerDasSessoes() {
-		Espetaculo ivete = new Espetaculo();
 
 		ivete.getSessoes().add(sessaoComIngressosSobrando(1));
 		ivete.getSessoes().add(sessaoComIngressosSobrando(3));
@@ -31,7 +37,6 @@ public class EspetaculoTest {
 
 	@Test
 	public void DeveInformarSeNaoEhPossivelReservarAQuantidadeDeIngressosDentroDeQualquerDasSessoes() {
-		Espetaculo ivete = new Espetaculo();
 
 		ivete.getSessoes().add(sessaoComIngressosSobrando(1));
 		ivete.getSessoes().add(sessaoComIngressosSobrando(3));
@@ -42,7 +47,6 @@ public class EspetaculoTest {
 
 	@Test
 	public void DeveInformarSeEhPossivelReservarAQuantidadeDeIngressosDentroDeQualquerDasSessoesComUmMinimoPorSessao() {
-		Espetaculo ivete = new Espetaculo();
 
 		ivete.getSessoes().add(sessaoComIngressosSobrando(3));
 		ivete.getSessoes().add(sessaoComIngressosSobrando(3));
@@ -53,7 +57,6 @@ public class EspetaculoTest {
 
 	@Test
 	public void DeveInformarSeEhPossivelReservarAQuantidadeExataDeIngressosDentroDeQualquerDasSessoesComUmMinimoPorSessao() {
-		Espetaculo ivete = new Espetaculo();
 
 		ivete.getSessoes().add(sessaoComIngressosSobrando(3));
 		ivete.getSessoes().add(sessaoComIngressosSobrando(3));
@@ -64,7 +67,6 @@ public class EspetaculoTest {
 
 	@Test
 	public void DeveInformarSeNaoEhPossivelReservarAQuantidadeDeIngressosDentroDeQualquerDasSessoesComUmMinimoPorSessao() {
-		Espetaculo ivete = new Espetaculo();
 
 		ivete.getSessoes().add(sessaoComIngressosSobrando(2));
 		ivete.getSessoes().add(sessaoComIngressosSobrando(2));
