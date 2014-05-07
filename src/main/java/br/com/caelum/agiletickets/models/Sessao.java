@@ -16,6 +16,9 @@ import org.joda.time.format.DateTimeFormat;
 @Entity
 public class Sessao {
 
+	
+	private final double PERCENTUAL_DE_INGRESSOS_ESGOTANDO = 0.50; 
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -119,6 +122,10 @@ public class Sessao {
 
 	public BigDecimal getPreco() {
 		return preco;
+	}
+	
+	public boolean ingressosEstaoAcabando(double percentual) {
+		return (this.totalIngressos - this.ingressosReservados) / this.totalIngressos.doubleValue() <= percentual;
 	}
 	
 }
