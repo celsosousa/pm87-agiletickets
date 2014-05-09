@@ -31,11 +31,12 @@ public class CalculadoraDePrecos {
 			if (espetaculoEhBalletOuOrquestra) {
 				if(sessao.getDuracaoEmMinutos() > 60){
 					preco = preco.add(sessao.getPreco().multiply(BigDecimal.valueOf(0.10)));
-				}				
+				} else {
+					preco = preco.add(sessao.getPreco().multiply(multiplicador));
+				}
 			} else {
 				preco = preco.add(sessao.getPreco().multiply(multiplicador));
 			}
-			
 		}
 
 		return preco.multiply(BigDecimal.valueOf(quantidade));
